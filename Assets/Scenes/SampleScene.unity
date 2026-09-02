@@ -131,8 +131,10 @@ GameObject:
   - component: {fileID: 514731230}
   - component: {fileID: 514731229}
   - component: {fileID: 514731228}
-  - component: {fileID: 514731227}
   - component: {fileID: 514731232}
+  - component: {fileID: 514731233}
+  - component: {fileID: 514731234}
+  - component: {fileID: 514731235}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -140,21 +142,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &514731227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 514731226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0670587466d9d6f459c33f4b76c6f46d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  MoveSpeed: 5
-  friction: 0.98
 --- !u!50 &514731228
 Rigidbody2D:
   serializedVersion: 5
@@ -181,7 +168,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &514731229
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -325,7 +312,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 514731227}
+      - m_Target: {fileID: 514731233}
         m_TargetAssemblyTypeName: Player_Movement, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
@@ -411,11 +398,71 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 514731234}
+        m_TargetAssemblyTypeName: Player_Cotroller, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b4cbdc95-7f49-45d8-bcf1-a967fb2bb88d
+    m_ActionName: 'Player/Shooting_Bullet_Player[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &514731233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514731226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664407e96ca5e9b4d8403f756e187974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  MoveSpeed: 15
+  friction: 0.98
+--- !u!114 &514731234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514731226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a277e7cf606f54f83732f80b155253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rb2D: {fileID: 0}
+  collider: {fileID: 0}
+  transform: {fileID: 0}
+  shooting: {fileID: 0}
+--- !u!114 &514731235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514731226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ebefb86331cf444ab4e67acefafc34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletprefab: {fileID: 5047090989645573432, guid: a05a3bbf7c660d747937da4626afe650, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

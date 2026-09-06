@@ -20,6 +20,11 @@ public class Player_Cotroller : MonoBehaviour
         shooting = GetComponent<Shoot>();
     }
 
+    void Update()
+    {
+
+    }
+
 
     public void Shoot(InputAction.CallbackContext context)
     {

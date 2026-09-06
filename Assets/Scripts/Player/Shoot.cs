@@ -5,27 +5,27 @@ public class Shoot : MonoBehaviour
 {
     [SerializeField] private GameObject bulletprefab;
 
-    public void ShootPlayer(Transform firepoint)
-    {
-        Vector2 direction = MousePosition(firepoint);
 
+    //METODO PRINCIPAL DE DIREÇÃO DE TIRO
+    public void ShootDirection(Transform firepoint, Vector2 direction)
+    {
         GameObject bulletprefarb = Instantiate(
             bulletprefab,
             firepoint.position,
             Quaternion.identity
         );
-
-        BulletMovement bulletMovement = bulletprefarb.GetComponent<BulletMovement>();
-
-        if (bulletMovement != null)
-        {
-            bulletMovement.SetDirection(direction);
-        }
-        else
-        {
-            Debug.LogError("Player_Bullet não possui o componente BulletMovement!");
-        }
+        BulletMovement bulletMovement = bulletprefarb.GetComponent<BulletMovement>();    
+        bulletMovement.SetDirection(direction);
+       
     }
+
+
+    public void ShootPlayer(Transform transform)
+    {
+        Vector2 direction = MousePosition(transform);
+        ShootDirection(transform, direction);
+    }
+
 
     Vector2 MousePosition(Transform firepoint)
     {

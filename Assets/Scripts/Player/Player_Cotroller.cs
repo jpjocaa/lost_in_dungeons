@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player_Cotroller : MonoBehaviour
+public class Player_Cotroller : MonoBehaviour //Decide quando as coisas devem acontecer
 {
 
     public Rigidbody2D Rb2D; 
@@ -22,11 +22,11 @@ public class Player_Cotroller : MonoBehaviour
 
     void Update()
     {
-
+        
     }
 
 
-    public void Shoot(InputAction.CallbackContext context)
+    public void Shoot(InputAction.CallbackContext context) //PRECISA DE COOLDOWN E SUMIR A BALA!
     {
         if(context.performed)
         {

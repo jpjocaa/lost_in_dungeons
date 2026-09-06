@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Shoot : MonoBehaviour
+public class Shoot : MonoBehaviour //Define direção
 {
     [SerializeField] private GameObject bulletprefab;
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player_Movement : MonoBehaviour
+public class Player_Movement : MonoBehaviour //Movimenta o player
 {
     [Header("Componentes do Player")]
     public Rigidbody2D rb;

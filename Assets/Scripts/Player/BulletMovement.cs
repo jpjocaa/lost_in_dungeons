@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BulletMovement : MonoBehaviour
+public class BulletMovement : MonoBehaviour //Movimenta a bala
 {
     [SerializeField] private float velocity = 10f;
 

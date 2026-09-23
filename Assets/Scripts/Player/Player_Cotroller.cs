@@ -8,6 +8,7 @@ public class Player_Cotroller : MonoBehaviour //Decide quando as coisas devem ac
     public Rigidbody2D Rb2D; 
     public BoxCollider2D collider;
     public Transform transform;
+    public GameObject gameObject;
 
 
     public Shoot shooting; 
@@ -22,6 +23,7 @@ public class Player_Cotroller : MonoBehaviour //Decide quando as coisas devem ac
         this.Rb2D = GetComponent<Rigidbody2D>();
         this.collider = GetComponent<BoxCollider2D>();
         this.transform = GetComponent<Transform>();
+        this.gameObject = GetComponent<GameObject>();
         shooting = GetComponent<Shoot>();
         
     }
@@ -39,7 +41,7 @@ public class Player_Cotroller : MonoBehaviour //Decide quando as coisas devem ac
     {
         if(context.performed && shootTimer <= 0f )
         {
-            shooting.ShootPlayer(transform);
+            shooting.ShootPlayer(transform, gameObject);
             shootTimer = ShootCooldown;
 
             //Debug.Log(Input.mousePosition);

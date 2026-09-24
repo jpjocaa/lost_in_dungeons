@@ -4,6 +4,7 @@ public class AutoShooting : MonoBehaviour
 {
     [SerializeField] private Transform firePoint;
     [SerializeField] private float cooldown = 0.3f;
+    [SerializeField] private string TargetString;
 
     private Shoot shooting;
     private Transform target;
@@ -31,7 +32,7 @@ public class AutoShooting : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag(TargetString))
         {
             target = collision.transform;
         }
@@ -39,7 +40,7 @@ public class AutoShooting : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag(TargetString))
         {
             target = null;
         }

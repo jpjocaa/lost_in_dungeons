@@ -28,6 +28,7 @@ public class Health : MonoBehaviour, IDamageable
         if (CompareTag("Player"))
         {
             //sei lá, menu da morte do player??
+            Debug.Log("Player morreu!");
         }
         else
         {

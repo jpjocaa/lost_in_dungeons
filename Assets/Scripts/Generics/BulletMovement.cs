@@ -46,8 +46,9 @@ public class BulletMovement : MonoBehaviour
         if (damageable != null)
         {
             damageable.TakeDamage(10);
+            Destroy(gameObject);
         }
 
-        Destroy(gameObject);
+        
     }
 }

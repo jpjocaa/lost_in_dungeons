@@ -12,10 +12,10 @@ public class Enemy_Controller : MonoBehaviour
     [SerializeField] public Rigidbody2D rb;
 
 
-    public void MoveToDirection(Transform target, float MoveSpeed)
+    public void MoveToDirection(Transform target, float moveSpeed)
     {
-        MoveDirection = new Vector2(target.position.x , target.position.y);
-        Debug.Log(MoveDirection);
-        rb.linearVelocity = MoveDirection * 1;
+        Vector2 direction = (target.position - transform.position).normalized;
+
+        rb.linearVelocity = direction * moveSpeed;
     }
 }

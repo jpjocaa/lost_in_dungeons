@@ -3,25 +3,29 @@ using UnityEngine;
 
 public class Enemy_Controller : MonoBehaviour
 {
-    //      Inimigo que ande em direção ao player,atire quando estiver no alcance,leve dano e morra.     //
+    public Transform playerPosition;
 
-    [Header("Atributos externos")]
-    [SerializeField] public Transform playerPosition;
-    private Vector2 MoveDirection;
-    [Header("Atributos do inimigo")]
-    [SerializeField] public Rigidbody2D rb;
+    public Rigidbody2D rb;
 
-    void Start()
+    void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        playerPosition = player.transform;
-
+        if (player != null)
+        {
+            playerPosition = player.transform;
+            Debug.Log("Player encontrado: " + playerPosition.name);
+        }
+        else
+        {
+            Debug.LogError("Player não encontrado!");
+        }
     }
 
     public void MoveToDirection(Transform target, float moveSpeed)
     {
-        Vector2 direction = (target.position - transform.position).normalized;
+        Vector2 direction =
+            (target.position - transform.position).normalized;
 
         rb.linearVelocity = direction * moveSpeed;
     }

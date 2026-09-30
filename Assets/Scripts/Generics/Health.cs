@@ -27,8 +27,8 @@ public class Health : MonoBehaviour, IDamageable
         //O die tá bem ruim por enquanto, mas já que não tem muita coisa então tanto faz.
         if (CompareTag("Player"))
         {
-            //sei lá, menu da morte do player??
-            Debug.Log("Player morreu!");
+            Destroy(gameObject);
+            Debug.Log("Player morreu!\n Por enquanto n tem uma animação de morte nem menu, ent vai ficar assim msm.");
         }
         else
         {

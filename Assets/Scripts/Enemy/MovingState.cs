@@ -7,8 +7,8 @@ public class MovingState : EnemyBaseState
     private float MoveSpeed = 5;
     public override void EnterState(EnemyStateManager enemy)
     {
-        this.playerPosition = enemy.Controller.playerPosition;
-        Debug.Log("Está se movendo!");
+        playerPosition = enemy.Controller.playerPosition;
+        Debug.Log("Player recebido pelo MovingState: " + playerPosition.name);
     }
 
     public override void OnCollisionEnter(EnemyStateManager boss, Collision collision)

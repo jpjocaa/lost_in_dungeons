@@ -11,6 +11,13 @@ public class Enemy_Controller : MonoBehaviour
     [Header("Atributos do inimigo")]
     [SerializeField] public Rigidbody2D rb;
 
+    void Start()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        playerPosition = player.transform;
+
+    }
 
     public void MoveToDirection(Transform target, float moveSpeed)
     {

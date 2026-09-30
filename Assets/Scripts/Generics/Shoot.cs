@@ -33,11 +33,7 @@ public class Shoot : MonoBehaviour
     {
         Vector2 direction = MousePosition(transform);
 
-        ShootDirection(
-            transform,
-            direction,
-            gameObject
-        );
+        ShootDirection(transform,direction,gameObject);
     }
 
     Vector2 MousePosition(Transform firepoint)

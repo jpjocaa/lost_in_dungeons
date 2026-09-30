@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AutoShooting : MonoBehaviour
@@ -7,7 +8,7 @@ public class AutoShooting : MonoBehaviour
     [SerializeField] private string TargetString;
 
     private Shoot shooting;
-    private Transform target;
+    private List<Transform> targets = new List<Transform>();
     private GameObject shooter;
     private float timer;
 
@@ -24,7 +25,7 @@ public class AutoShooting : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
-        if (target != null && timer <= 0)
+        if (targets.Count > 0 && timer <= 0)
         {
             AutoShoot();
         }
@@ -34,7 +35,7 @@ public class AutoShooting : MonoBehaviour
     {
         if (collision.CompareTag(TargetString))
         {
-            target = collision.transform;
+            targets.Add(collision.transform);
         }
     }
 
@@ -42,20 +43,23 @@ public class AutoShooting : MonoBehaviour
     {
         if (collision.CompareTag(TargetString))
         {
-            target = null;
+            targets.Remove(collision.transform);
         }
     }
 
     private void AutoShoot()
     {
-        Vector2 direction =
-            (target.position - firePoint.position).normalized;
+        foreach (Transform target in targets)
+        {
+            Vector2 direction =
+                (target.position - firePoint.position).normalized;
 
-        shooting.ShootDirection(
-            firePoint,
-            direction,
-            shooter
-        );
+            shooting.ShootDirection(
+                firePoint,
+                direction,
+                shooter
+            );
+        }
 
         timer = cooldown;
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour, IDamageable
 {
@@ -27,7 +28,8 @@ public class Health : MonoBehaviour, IDamageable
         //O die tá bem ruim por enquanto, mas já que não tem muita coisa então tanto faz.
         if (CompareTag("Player"))
         {
-            Destroy(gameObject);
+            
+            SceneManager.LoadScene("Menu");
             Debug.Log("Player morreu!\n Por enquanto n tem uma animação de morte nem menu, ent vai ficar assim msm.");
         }
         else

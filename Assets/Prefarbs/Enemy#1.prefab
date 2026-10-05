@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5920087879851053203}
-  cooldown: 0.3
+  cooldown: 1
   TargetString: Player
 --- !u!58 &4441546610020459555
 CircleCollider2D:
@@ -83,7 +83,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 3
+  m_Radius: 2
 --- !u!1 &9124040967637842201
 GameObject:
   m_ObjectHideFlags: 0

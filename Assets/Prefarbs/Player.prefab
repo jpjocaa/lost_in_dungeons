@@ -311,12 +311,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 317525102037275383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 664407e96ca5e9b4d8403f756e187974, type: 3}
+  m_Script: {fileID: 11500000, guid: 0670587466d9d6f459c33f4b76c6f46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  MoveSpeed: 7.56
-  friction: 0.98
+  MoveSpeed: 15
+  friction: 0.97
 --- !u!114 &6232548352918614970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 317525102037275383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a277e7cf606f54f83732f80b155253, type: 3}
+  m_Script: {fileID: 11500000, guid: 3655c21e91f4d9848b549bd0bc5c4ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Rb2D: {fileID: 0}

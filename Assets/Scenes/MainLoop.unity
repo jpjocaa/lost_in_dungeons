@@ -345,7 +345,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream:Assets/Scenes/MainLoop.unity
 --- !u!1 &1008399840
+=======
+--- !u!1 &1977826278
+>>>>>>> Stashed changes:Assets/Scenes/SampleScene.unity
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,8 +357,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream:Assets/Scenes/MainLoop.unity
   - component: {fileID: 1008399842}
   - component: {fileID: 1008399841}
+=======
+  - component: {fileID: 1977826280}
+  - component: {fileID: 1977826279}
+>>>>>>> Stashed changes:Assets/Scenes/SampleScene.unity
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -362,13 +371,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< Updated upstream:Assets/Scenes/MainLoop.unity
 --- !u!114 &1008399841
+=======
+--- !u!114 &1977826279
+>>>>>>> Stashed changes:Assets/Scenes/SampleScene.unity
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream:Assets/Scenes/MainLoop.unity
   m_GameObject: {fileID: 1008399840}
+=======
+  m_GameObject: {fileID: 1977826278}
+>>>>>>> Stashed changes:Assets/Scenes/SampleScene.unity
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce8bf785fbd778e4d8115b116b2130c4, type: 3}
@@ -377,14 +394,21 @@ MonoBehaviour:
   enemyprefarbs:
   - {fileID: 9124040967637842201, guid: 08fe3bf9f62ebd94d8fcbffb1f657119, type: 3}
   player: {fileID: 514731231}
+<<<<<<< Updated upstream:Assets/Scenes/MainLoop.unity
   spawnInterval: 0.6
   spawnRadius: 15
 --- !u!4 &1008399842
+=======
+  spawnInterval: 1
+  spawnRadius: 12
+--- !u!4 &1977826280
+>>>>>>> Stashed changes:Assets/Scenes/SampleScene.unity
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream:Assets/Scenes/MainLoop.unity
   m_GameObject: {fileID: 1008399840}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -399,6 +423,17 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 332611405174811584, guid: 32f829a1eee656f4da21f2ebef36b6c4, type: 3}
   m_PrefabInstance: {fileID: 6915907386061522852}
   m_PrefabAsset: {fileID: 0}
+=======
+  m_GameObject: {fileID: 1977826278}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.250999, y: -2.134991, z: -0.09139633}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> Stashed changes:Assets/Scenes/SampleScene.unity
 --- !u!1001 &6915907386061522852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -413,12 +448,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3850613896137576137, guid: 32f829a1eee656f4da21f2ebef36b6c4, type: 3}
       propertyPath: m_Radius
+<<<<<<< Updated upstream:Assets/Scenes/MainLoop.unity
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4469172448132555394, guid: 32f829a1eee656f4da21f2ebef36b6c4, type: 3}
       propertyPath: rb
       value: 
       objectReference: {fileID: 1033600875}
+=======
+      value: 1
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes:Assets/Scenes/SampleScene.unity
     - target: {fileID: 7795344667181094186, guid: 32f829a1eee656f4da21f2ebef36b6c4, type: 3}
       propertyPath: m_LocalScale.x
       value: 7
@@ -474,6 +514,17 @@ PrefabInstance:
     - target: {fileID: 8732607276389792700, guid: 32f829a1eee656f4da21f2ebef36b6c4, type: 3}
       propertyPath: m_Enabled
       value: 1
+<<<<<<< Updated upstream:Assets/Scenes/MainLoop.unity
+=======
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137588947775348618, guid: 32f829a1eee656f4da21f2ebef36b6c4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137588947775348618, guid: 32f829a1eee656f4da21f2ebef36b6c4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+>>>>>>> Stashed changes:Assets/Scenes/SampleScene.unity
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -490,3 +541,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 6915907386061522852}
+<<<<<<< Updated upstream:Assets/Scenes/MainLoop.unity
+=======
+  - {fileID: 1977826280}
+>>>>>>> Stashed changes:Assets/Scenes/SampleScene.unity

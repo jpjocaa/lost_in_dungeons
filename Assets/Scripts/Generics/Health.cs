@@ -5,16 +5,18 @@ public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] public float Maxhealth;
     private float health;
+    private LevelSystem levelSystem ;
+
 
     void Start()
     {
         health = Maxhealth;
+        LevelSystem levelSystem = FindFirstObjectByType<LevelSystem>();
     }
 
     public void TakeDamage(float damage)
     {
        health -= damage;
-       Debug.Log("AI");
 
        if (health <= 0)
         {
@@ -35,6 +37,12 @@ public class Health : MonoBehaviour, IDamageable
         else
         {
             Destroy(gameObject);
+            LevelSystem levelSystem =FindFirstObjectByType<LevelSystem>();
+
+            if (CompareTag("Enemy") && levelSystem != null)
+            {
+                levelSystem.RegisterKill();
+            }
         }
     }
 }

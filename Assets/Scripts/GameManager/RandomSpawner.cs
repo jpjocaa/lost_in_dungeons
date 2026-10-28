@@ -34,7 +34,14 @@ public class RandomSpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         GameObject enemy = enemyprefarbs[Random.Range(0, enemyprefarbs.Length)]; //pega um inimigo aleatorio. Por enquanto só tem 1 ent n muda nada
-        UnityEngine.Vector2 spawnPosition = (UnityEngine.Vector2)player.position + Random.insideUnitCircle.normalized * spawnRadius;
+       UnityEngine.Vector2 offset = new UnityEngine.Vector2(
+        UnityEngine.Random.Range(-1f, 1f),
+        UnityEngine.Random.Range(-1f, 1f)
+        );
+
+offset = offset.normalized * spawnRadius;
+
+    UnityEngine.Vector2 spawnPosition = (UnityEngine.Vector2)player.position + offset;
         Instantiate(enemy,spawnPosition, UnityEngine.Quaternion.identity);
     }
 }

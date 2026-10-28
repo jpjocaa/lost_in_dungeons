@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Chest : MonoBehaviour, IInteracatable
@@ -13,6 +14,7 @@ public class Chest : MonoBehaviour, IInteracatable
     {
         menu.OpenMenu();
         Debug.Log("ABRIU!");
+        Destroy(gameObject);
     }
 
     public void OnNotTouchingPlayer()

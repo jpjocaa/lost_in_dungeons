@@ -6,6 +6,8 @@ public class RewardMenu : MonoBehaviour
 
     private bool MenuAberto;
 
+    
+
     public void OpenMenu()
     {
 

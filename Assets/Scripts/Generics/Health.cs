@@ -7,12 +7,24 @@ public class Health : MonoBehaviour, IDamageable
     private float health;
     private LevelSystem levelSystem ;
 
+    private PlayerBaseStats stats;
+
     private bool isDead;
 
 
     void Start()
     {
-        health = Maxhealth;
+        stats = GetComponent<PlayerBaseStats>();
+
+        if (CompareTag("Player"))
+        {
+            health = stats.MaxHealth;
+        } 
+        else if (CompareTag("Enemy"))
+        {
+            health = Maxhealth;
+        }
+
         LevelSystem levelSystem = FindFirstObjectByType<LevelSystem>();
     }
 
@@ -52,5 +64,11 @@ public class Health : MonoBehaviour, IDamageable
 
             Destroy(gameObject);
         }
+    }
+
+    public void Heal(float amount)
+    {
+        health =+ amount;
+        health = Mathf.Min(health, Maxhealth);//ainda não muda nada pois o player não se regenera.
     }
 }

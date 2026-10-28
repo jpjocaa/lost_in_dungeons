@@ -12,10 +12,7 @@ public class Shoot : MonoBehaviour
         shooterCollider = GetComponent<Collider2D>();
     }
 
-    public void ShootDirection(
-        Transform firepoint,
-        Vector2 direction,
-        GameObject shooter)
+    public void ShootDirection(Transform firepoint,Vector2 direction,GameObject shooter, float Damage)
     {
         GameObject bulletprefarb = Instantiate(
             bulletprefab,
@@ -26,14 +23,14 @@ public class Shoot : MonoBehaviour
         BulletMovement bulletMovement =
             bulletprefarb.GetComponent<BulletMovement>();
 
-        bulletMovement.Initialize(direction, shooter);
+        bulletMovement.Initialize(direction, shooter,Damage);
     }
 
-    public void ShootPlayer(Transform transform, GameObject player)
+    public void ShootPlayer(Transform transform, GameObject player, float Damage)
     {
         Vector2 direction = MousePosition(transform);
 
-        ShootDirection(transform,direction,gameObject);
+        ShootDirection(transform,direction,gameObject, Damage);
     }
 
     Vector2 MousePosition(Transform firepoint)

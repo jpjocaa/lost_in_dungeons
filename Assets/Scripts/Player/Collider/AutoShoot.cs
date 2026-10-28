@@ -8,6 +8,7 @@ public class AutoShooting : MonoBehaviour
     [SerializeField] private string TargetString;
 
     private Shoot shooting;
+    private PlayerBaseStats stats;
     private List<Transform> targets = new List<Transform>();
     private GameObject shooter;
     private float timer;
@@ -16,6 +17,12 @@ public class AutoShooting : MonoBehaviour
     {
         shooting = GetComponentInParent<Shoot>();
         shooter = shooting.gameObject;
+
+        if (CompareTag("PlayerAutoShoot"))
+        {
+            this.stats = GetComponentInParent<PlayerBaseStats>();
+            Debug.Log(stats);
+        }
     }
 
     void Update()
@@ -36,6 +43,7 @@ public class AutoShooting : MonoBehaviour
         if (collision.CompareTag(TargetString))
         {
             targets.Add(collision.transform);
+            Debug.Log("ENCONTREI!");
         }
     }
 
@@ -54,11 +62,21 @@ public class AutoShooting : MonoBehaviour
             Vector2 direction =
                 (target.position - firePoint.position).normalized;
 
-            shooting.ShootDirection(
-                firePoint,
-                direction,
-                shooter
-            );
+            if (CompareTag("PlayerAutoShoot"))
+            {
+                shooting.ShootDirection(firePoint,direction,shooter, stats.BaseDamage);
+                Debug.Log("Player Atirando");
+            }
+            else if (CompareTag("EnemyAutoShoot"))
+            {
+               shooting.ShootDirection(firePoint,direction,shooter, 10); 
+               Debug.Log("Inimigo atirando");
+            }
+            else
+            {
+                Debug.Log("Tag errada kkkk");
+            }
+            
         }
 
         timer = cooldown;

@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - AutoShoot
   - Chest
+  - PlayerAutoShoot
+  - EnemyAutoShoot
   layers:
   - Default
   - TransparentFX

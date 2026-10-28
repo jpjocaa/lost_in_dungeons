@@ -7,16 +7,17 @@ public class BulletMovement : MonoBehaviour
     [SerializeField] private float lifeTime = 1f;
 
     private Vector2 direction;
+    private float Damage;
 
     void Start()
     {
         Destroy(gameObject, lifeTime);
     }
 
-    public void Initialize(Vector2 direction, GameObject shooter)
+    public void Initialize(Vector2 direction, GameObject shooter, float Damage)
     {
         this.direction = direction;
-
+        this.Damage = Damage;
         Collider2D bulletCollider = GetComponent<Collider2D>();
 
         Collider2D[] shooterColliders =
@@ -45,7 +46,7 @@ public class BulletMovement : MonoBehaviour
 
         if (damageable != null)
         {
-            damageable.TakeDamage(10);
+            damageable.TakeDamage(this.Damage);
             Destroy(gameObject);
         }
 

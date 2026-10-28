@@ -1,3 +1,4 @@
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,18 +9,19 @@ public class Player_Movement : MonoBehaviour //Movimenta o player
     private Vector2 moveInput;
     
     [Header("Especificações")]
-    public float MoveSpeed;
+    private PlayerBaseStats MoveSpeed;
     bool moving;
     public float friction;
 
     void Start()
     {
+        MoveSpeed = GetComponent<PlayerBaseStats>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        rb.linearVelocity = moveInput * MoveSpeed;
+        rb.linearVelocity = moveInput * MoveSpeed.MoveSpeed;
 
         if(moving == false) 
         {

@@ -7,6 +7,8 @@ public class Health : MonoBehaviour, IDamageable
     private float health;
     private LevelSystem levelSystem ;
 
+    private bool isDead;
+
 
     void Start()
     {
@@ -26,23 +28,29 @@ public class Health : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        if (isDead)
+            return;
 
-        //O die tá bem ruim por enquanto, mas já que não tem muita coisa então tanto faz.
+        isDead = true;
+
         if (CompareTag("Player"))
         {
-            
+            Debug.Log("Player morreu!");
+
             SceneManager.LoadScene("Menu");
-            Debug.Log("Player morreu!\n Por enquanto n tem uma animação de morte nem menu, ent vai ficar assim msm.");
         }
         else
         {
-            Destroy(gameObject);
-            LevelSystem levelSystem =FindFirstObjectByType<LevelSystem>();
-
-            if (CompareTag("Enemy") && levelSystem != null)
+            if (CompareTag("Enemy"))
             {
-                levelSystem.RegisterKill();
+                LevelSystem levelSystem =
+                    FindFirstObjectByType<LevelSystem>();
+
+                if (levelSystem != null)
+                    levelSystem.RegisterKill();
             }
+
+            Destroy(gameObject);
         }
     }
 }

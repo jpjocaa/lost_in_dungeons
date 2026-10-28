@@ -2,9 +2,17 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour, IInteracatable
 {
+    [SerializeField] private RewardMenu menu;
+
+    private void Awake()
+    {
+        menu = FindFirstObjectByType<RewardMenu>();
+        Debug.Log(menu);
+    }
     public void Interact()
     {
-        Debug.Log("Baú irá abrir!");
+        menu.OpenMenu();
+        Debug.Log("ABRIU!");
     }
 
     public void OnNotTouchingPlayer()

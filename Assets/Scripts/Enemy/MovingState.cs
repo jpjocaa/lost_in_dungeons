@@ -4,7 +4,7 @@ using UnityEngine;
 public class MovingState : EnemyBaseState
 {
     private Transform playerPosition;
-    private float MoveSpeed = 5;
+    public float MoveSpeed = 5;
     public override void EnterState(EnemyStateManager enemy)
     {
         playerPosition = enemy.Controller.playerPosition;

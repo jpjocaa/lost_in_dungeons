@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class Boacompanhia : MonoBehaviour
 {
@@ -9,43 +10,31 @@ public class Boacompanhia : MonoBehaviour
 
     private void Awake()
     {
-        Checkcollision();
+        collider2d = GetComponent<BoxCollider2D>();
     }
 
-    public void Repelir()
+
+    IEnumerator Repelir(float seconds, GameObject Inimigo)
     {
-        if (collider2d == true)
+        if (collider2d != null)
         {
             //é para ficar executando toda hora certo?
-            //StartCoroutine(Routine(10f));
-            StartCoroutine(Wait(10f));
-            movingstate = GetComponent<MovingState>();
-            var originalSpeed = movingstate.MoveSpeed;
-            movingstate.MoveSpeed = -10f;
-            StartCoroutine(Wait(1f));
-            movingstate.MoveSpeed = originalSpeed; 
-        }
-    }
-    IEnumerator Wait(float segundos)
-    {
-        yield return new WaitForSeconds(segundos);
-    }
-    public void Checkcollision()
-    {
-       collider2d = GetComponent<BoxCollider2D>();
-    }
-
-    IEnumerator Routine(float segundos)
-    {
-        movingstate = GetComponent<MovingState>();
-        while(true)
-        {
-            yield return new WaitForSeconds(segundos);
+            //StartCoroutine(Routine(10f))
+            movingstate = Inimigo.GetComponent<MovingState>();
             var originalSpeed = movingstate.MoveSpeed;
             movingstate.MoveSpeed = -10f;
             yield return new WaitForSeconds(1f);
             movingstate.MoveSpeed = originalSpeed;
-            
+            yield return new WaitForSeconds(10f);
         }
     }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            StartCoroutine(Repelir(1f,other.gameObject));
+        }
+    }
+
 }

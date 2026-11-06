@@ -3,28 +3,49 @@ using UnityEngine.AI;
 using System.Collections;
 
 public class Boacompanhia : MonoBehaviour
-
 {
     public BoxCollider2D collider2d; 
     public MovingState movingstate;
 
-    public void repelir()
+    private void Awake()
     {
-        if (collider2d = true)
+        Checkcollision();
+    }
+
+    public void Repelir()
+    {
+        if (collider2d == true)
         {
-            StartCoroutine(wait(10f));
+            //é para ficar executando toda hora certo?
+            //StartCoroutine(Routine(10f));
+            StartCoroutine(Wait(10f));
             movingstate = GetComponent<MovingState>();
+            var originalSpeed = movingstate.MoveSpeed;
             movingstate.MoveSpeed = -10f;
-                StartCoroutine(wait(1f));
-            movingstate.MoveSpeed = 5f; 
+            StartCoroutine(Wait(1f));
+            movingstate.MoveSpeed = originalSpeed; 
         }
     }
-    IEnumerator wait(float segundos)
+    IEnumerator Wait(float segundos)
     {
         yield return new WaitForSeconds(segundos);
     }
-    public void checkcollision()
+    public void Checkcollision()
     {
        collider2d = GetComponent<BoxCollider2D>();
+    }
+
+    IEnumerator Routine(float segundos)
+    {
+        movingstate = GetComponent<MovingState>();
+        while(true)
+        {
+            yield return new WaitForSeconds(segundos);
+            var originalSpeed = movingstate.MoveSpeed;
+            movingstate.MoveSpeed = -10f;
+            yield return new WaitForSeconds(1f);
+            movingstate.MoveSpeed = originalSpeed;
+            
+        }
     }
 }

@@ -4,11 +4,11 @@ using UnityEngine;
 public class MovingState : EnemyBaseState
 {
     private Transform playerPosition;
-    public float MoveSpeed = 5;
+    public float MoveSpeed = 3;
+
     public override void EnterState(EnemyStateManager enemy)
     {
         playerPosition = enemy.Controller.playerPosition;
-        Debug.Log("Player recebido pelo MovingState: " + playerPosition.name);
     }
 
     public override void OnCollisionEnter(EnemyStateManager boss, Collision collision)

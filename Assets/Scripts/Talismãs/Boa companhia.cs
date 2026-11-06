@@ -7,6 +7,7 @@ public class Boacompanhia : MonoBehaviour
 {
     public BoxCollider2D collider2d; 
     public MovingState movingstate;
+    public Health health;
 
     private void Awake()
     {
@@ -23,6 +24,12 @@ public class Boacompanhia : MonoBehaviour
             movingstate = Inimigo.GetComponent<MovingState>();
             var originalSpeed = movingstate.MoveSpeed;
             movingstate.MoveSpeed = -10f;
+
+
+            health = Inimigo.GetComponent<Health>();
+            health.TakeDamage(3f);
+
+            
             yield return new WaitForSeconds(1f);
             movingstate.MoveSpeed = originalSpeed;
             yield return new WaitForSeconds(10f);

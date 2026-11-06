@@ -9,9 +9,14 @@ public class Boacompanhia : MonoBehaviour
     public MovingState movingstate;
     public Health health;
 
+    public bool podeUsar = true;
+    [SerializeField] public SpriteRenderer Bola;
+
     private void Awake()
     {
+        Bola = GetComponent<SpriteRenderer>();
         collider2d = GetComponent<BoxCollider2D>();
+        Bola.enabled = false;
     }
 
 
@@ -21,25 +26,30 @@ public class Boacompanhia : MonoBehaviour
         {
             //é para ficar executando toda hora certo?
             //StartCoroutine(Routine(10f))
-            movingstate = Inimigo.GetComponent<MovingState>();
+            movingstate = new();
             var originalSpeed = movingstate.MoveSpeed;
-            movingstate.MoveSpeed = -10f;
+            movingstate.MoveSpeed = -1000f;
 
 
             health = Inimigo.GetComponent<Health>();
             health.TakeDamage(3f);
 
             
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             movingstate.MoveSpeed = originalSpeed;
+            Bola.enabled = false;
             yield return new WaitForSeconds(10f);
+            podeUsar = true;
         }
+
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy" ) && podeUsar)
         {
+            podeUsar = false;
+            Bola.enabled = true;
             StartCoroutine(Repelir(1f,other.gameObject));
         }
     }
